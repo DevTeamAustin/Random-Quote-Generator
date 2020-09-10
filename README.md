@@ -1,2 +1,2 @@
 # TTH-Project-Unit-1
- Unit 1 Project
+ Welcome to my first TechDegree Project! I hope you enjoy!
