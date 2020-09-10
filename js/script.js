@@ -12,50 +12,64 @@ project 1 - A Random Quote Generator
  * `quotes` array 
 ***/
 //Below are the quotes that will be used in the Random Quote Generator project.
-let qouteList = [
+let quotes = [
   {
     qoute: '"All our dreams can come true, if we have the courage to pursue them."',
-    author: '- Walt Disney'
+    source: '- Walt Disney',
+    citation: 'Goodreads',
+    year: 1975
+
   },
   {
-    quote: '"All our dreams can come true, if we have the courage to pursue them."',
-    author: '- Mark Twain'
+    quote: '"Make your life a master piece; imagine no limitation on what you can be, have or do."',
+    source: '- Brian Tracy',
+    citation: 'Goodreads',
+    year: ''
   },
   {
     quote: '"It\'s hard to beat a person who never gives up."',
-    author: '- Babe Ruth'
+    source: '- Babe Ruth',
+    citation: 'Goodreads',
+    year: 1940
   },
   {
     quote: '"Atleast..I think I am doing this right"',
-    author: 'Austin Hinz',
+    source: 'Austin Hinz',
+    citation: 'A TechDegree Student',
     year: 2020
   },
   {
     quote: '"I like things to happen and if they don\'t happen, I like to make them happen"',
-    author: 'Winston Churchill',
-    citation: 'goodreads.com/quotes/5233279'
+    source: 'Winston Churchill',
+    citation: 'Goodreads',
+    year: 1941
   }
   ]
   
 /***
  * `getRandomQuote` function
 ***/
-let number = qouteList.length
+let number = quotes.length
 
 function getRandomQuote(upper) {
   let randomIndexQuote = Math.floor((Math.random() * upper)) 
-  return(qouteList[randomIndexQuote]);
+  return(quotes[randomIndexQuote]);
 }
 
 /***
  * `printQuote` function
 ***/
  function printQuote() {
+
    let quoteBeingDisplayed = getRandomQuote(number)
-  return (quoteBeingDisplayed);
+   let html = '<p class="quote">' + quoteBeingDisplayed.quote + '</p>' + '<p class="quote">' + quoteBeingDisplayed.source + '</p>' +
+   '<span class="citation">' + quoteBeingDisplayed.citation + '</span>' + '<span class="year">' + quoteBeingDisplayed.year + '</span>'
+   document.getElementById('load-quote').addEventListener("click", printQuote, false);
+   document.getElementById('quote-box').innerHTML = html;
 }
 
-let html = printQuote();
+let html = printQuote(number);
+
 
 
 /***
@@ -63,10 +77,10 @@ let html = printQuote();
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+//document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
 
-yo
+
 
 
 //Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.
