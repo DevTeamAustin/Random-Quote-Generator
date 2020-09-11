@@ -89,7 +89,7 @@ h1 {
   position: absolute;
 }
 
-.source {
+.source, .category {
   font-size: 1rem;
   letter-spacing: 0.05em;
   line-height: 1.1;
@@ -162,5 +162,10 @@ h1 {
 
   .source {
     font-size: 1.25rem;
+  }
+
+  .category {
+    font-size: 1.10rem;
+    margin-right: 2.3em;
   }
 }

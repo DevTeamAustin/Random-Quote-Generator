@@ -7,7 +7,7 @@ function getRandomBackgroundColor() {
   var x = Math.floor(Math.random() * 256);
   var y = Math.floor(Math.random() * 256);
   var z = Math.floor(Math.random() * 256);
-  var randomBackgroundColor = "rgb(" + x + "," + y + "," + z + ")";
+  var randomBackgroundColor = `rgb( ${x}, ${y}, ${z})`;
     return document.body.style.background = randomBackgroundColor
 };
 
@@ -16,7 +16,7 @@ function refreshQuote() {
   setInterval(function(){ 
     let html = printQuote(number);
     let changeColor = getRandomBackgroundColor(); 
-   }, 3000);
+   }, 8000);
 };
 
 /*This function is step 1 of 2 of generating the random quote that will be displayed
@@ -32,8 +32,9 @@ statements also check whether or not specific elements are available and creates
 displayed when the user sees a new quote*/
  function printQuote() {
    let quoteBeingDisplayed = getRandomQuote(number)
-   let html = `<p class="quote"> ${quoteBeingDisplayed.quote} </p>`
-  html += `<p class="quote"> ${quoteBeingDisplayed.source}</p>`;
+
+   let html = `<p class="quote"> ${quoteBeingDisplayed.quote} </p>`;
+      html += `<p class="source"> ${quoteBeingDisplayed.source}`;
 
    if (quoteBeingDisplayed.citation) {
     html += `<span class="citation"> ${quoteBeingDisplayed.citation} </span>`;
@@ -41,52 +42,58 @@ displayed when the user sees a new quote*/
    if (quoteBeingDisplayed.year) {
     html += `<span class="year"> ${quoteBeingDisplayed.year} </span>`;
    }
+   html += '</p>'; 
+
    if (quoteBeingDisplayed.category) {
-     for ( i = 0; i < quoteBeingDisplayed.category.length; i++) {
-    html += `<span class="category"> ${quoteBeingDisplayed.category[i]}</span>`;
-   }
+     html += '<p class="category">';
+     for ( let i = 0; i < quoteBeingDisplayed.category.length; i++) {
+    html += `<span class="category"> ${quoteBeingDisplayed.category[i]}</span>`; 
   }
+  html += '</p>'; 
+  }
+
   getRandomBackgroundColor();
    document.getElementById('quote-box').innerHTML = html;
+   console.log(html);
 };
 
 //Below in the quotes array, are the quotes that will be used as random quotes in this Random Quote Generator project.
 let quotes = [
   {
-    qoute: 'All our dreams can come true, if we have the courage to pursue them.',
-    source: '- Walt Disney',
+    quote: 'All our dreams can come true, if we have the courage to pursue them.',
+    source: 'Walt Disney',
     citation: 'Goodreads',
     year: 1975,
-    category: 'Inspiration'
+    category: ['Inspiration']
 
   },
   {
     quote: 'Make your life a master piece; imagine no limitation on what you can be, have or do.',
-    source: '- Brian Tracy',
+    source: 'Brian Tracy',
     citation: 'Goodreads',
     year: '',
-    category: 'Inspiration'
+    category: ['Inspiration']
   },
   {
     quote: 'It\'s hard to beat a person who never gives up.',
-    source: '- Babe Ruth',
+    source: 'Babe Ruth',
     citation: 'Goodreads',
     year: 1940,
-    category: 'Motivation'
+    category: ['Motivation']
   },
   {
     quote: 'Atleast..I think I am doing this right',
     source: 'Austin Hinz',
     citation: 'A TechDegree Student',
     year: 2020,
-    category: ['Motivation', ' Humor']
+    category: ['Motivation', 'Humor']
   },
   {
     quote: 'I like things to happen and if they don\'t happen, I like to make them happen',
     source: 'Winston Churchill',
     citation: 'Goodreads',
     year: 1941,
-    category: 'Inspiration'
+    category: ['Inspiration']
   }
   ];
 
@@ -101,8 +108,7 @@ document.getElementById('load-quote').addEventListener("click", printQuote, fals
 
 
 //PROBLEMS/Stuff I am trying to incorporate into this script:
-// #1. Walt Disney quote is showing up as undefined when code is ran
-// #2. Commas are unorganized when they are loaded in on the screen
+
 
 //FUTURE UPDATES:
 // #1. Adding pictures of the author instead of a random color
