@@ -1,7 +1,5 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
+//Treehouse FSJS Techdegree: Project 1 - A Random Quote Generator
+
 //Function that will generate a new quote from the quote array after 8 seconds and also incorporate other functions(printQuote and getRandomBackgroundColor).
 function refreshQuote() {
   setInterval(function() { 
