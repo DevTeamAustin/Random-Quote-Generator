@@ -2,21 +2,21 @@
 Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
-//Function that will make the background a different color everytime a new quote is shown
+//Function that will generate a new quote from the quote array after 8 seconds and also incorporate other functions(printQuote and getRandomBackgroundColor).
+function refreshQuote() {
+  setInterval(function() { 
+    let changeColor = getRandomBackgroundColor() 
+   }, 8000);
+    let html = printQuote(number);
+};
+
+//Function that will make the background a different color everytime a new quote is shown.
 function getRandomBackgroundColor() {
   var x = Math.floor(Math.random() * 256);
   var y = Math.floor(Math.random() * 256);
   var z = Math.floor(Math.random() * 256);
   var randomBackgroundColor = `rgb( ${x}, ${y}, ${z})`;
-    return document.body.style.background = randomBackgroundColor
-};
-
-//Function that will generate a new quote from the quote array after X amount of time.
-function refreshQuote() {
-  setInterval(function(){ 
-    let html = printQuote(number);
-    let changeColor = getRandomBackgroundColor(); 
-   }, 8000);
+    return document.body.style.background = randomBackgroundColor;
 };
 
 /*This function is step 1 of 2 of generating the random quote that will be displayed
@@ -29,9 +29,9 @@ function getRandomQuote(upper4Quote) {
 
 /*Below is the printQuote function that is step 2 of 2 of generating the random quote. The conditional
 statements also check whether or not specific elements are available and creates html fragments that will be 
-displayed when the user sees a new quote*/
+displayed when the user sees a new quote.*/
  function printQuote() {
-   let quoteBeingDisplayed = getRandomQuote(number)
+   let quoteBeingDisplayed = getRandomQuote(number);
 
    let html = `<p class="quote"> ${quoteBeingDisplayed.quote} </p>`;
       html += `<p class="source"> ${quoteBeingDisplayed.source}`;
@@ -97,10 +97,9 @@ let quotes = [
   }
   ];
 
-
-/*variable number will be used in getRandomQuote function and quoteTimer initializes the 
+/*Variable number will be used in getRandomQuote function and quoteTimer initializes the 
 functions that will randomly generate quotes*/
-let number = quotes.length
+let number = quotes.length;
 let quoteTimer = refreshQuote();
 
 //Print quote button. DO NOT CHANGE.
@@ -108,7 +107,8 @@ document.getElementById('load-quote').addEventListener("click", printQuote, fals
 
 
 //PROBLEMS/Stuff I am trying to incorporate into this script:
-
+// #1. Chaning the timer that will reset when button is pressed
+// #2. Using hs1 to prevent hard-to-read colors
 
 //FUTURE UPDATES:
 // #1. Adding pictures of the author instead of a random color
