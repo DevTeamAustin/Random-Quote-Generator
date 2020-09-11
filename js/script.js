@@ -6,8 +6,8 @@ project 1 - A Random Quote Generator
 function refreshQuote() {
   setInterval(function() { 
     let changeColor = getRandomBackgroundColor() 
-   }, 8000);
-    let html = printQuote(number);
+    let html = printQuote(number); 
+  }, 5000);
 };
 
 //Function that will make the background a different color everytime a new quote is shown.
@@ -33,14 +33,14 @@ displayed when the user sees a new quote.*/
  function printQuote() {
    let quoteBeingDisplayed = getRandomQuote(number);
 
-   let html = `<p class="quote"> ${quoteBeingDisplayed.quote} </p>`;
+   let html = `<p class="quote"> ${quoteBeingDisplayed.quote}</p>`;
       html += `<p class="source"> ${quoteBeingDisplayed.source}`;
 
    if (quoteBeingDisplayed.citation) {
-    html += `<span class="citation"> ${quoteBeingDisplayed.citation} </span>`;
+    html += `<span class="citation"> ${quoteBeingDisplayed.citation}</span>`;
    }
    if (quoteBeingDisplayed.year) {
-    html += `<span class="year"> ${quoteBeingDisplayed.year} </span>`;
+    html += `<span class="year"> ${quoteBeingDisplayed.year}</span>`;
    }
    html += '</p>'; 
 
@@ -105,9 +105,8 @@ let quoteTimer = refreshQuote();
 //Print quote button. DO NOT CHANGE.
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
-
 //PROBLEMS/Stuff I am trying to incorporate into this script:
-// #1. Chaning the timer that will reset when button is pressed
+// #1. Chane the timer that will reset when button is pressed
 // #2. Using hs1 to prevent hard-to-read colors
 
 //FUTURE UPDATES:
